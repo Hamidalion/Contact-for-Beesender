@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ContactBeesender.BLL\ContactBeesender.BLL.csproj" />
+    <ProjectReference Include="..\ContactBeesender.Common\ContactBeesender.Common.csproj" />
+  </ItemGroup>
+
+</Project>

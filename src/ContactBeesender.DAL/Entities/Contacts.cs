@@ -1,11 +1,18 @@
-﻿using System;
+﻿using ContactBeesender.Common.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ContactBeesender.DAL.Entities
 {
-    public class Contacts
+    public class Contacts : IHasDbIdentity, IHasUserIdentity
     {
+        /// <inheritdoc/>
+        public int Id { get; set; }
+
+        /// <inheritdoc/>
+        public string UserId { get; set; }
+
         /// <summary>
         /// Name contact.
         /// </summary>
@@ -30,5 +37,8 @@ namespace ContactBeesender.DAL.Entities
         /// Birthdate of contact.
         /// </summary>
         public DateTime Birthdate { get; set; }
+
+        /// <inheritdoc/>
+        public User User { get; set; }
     }
 }

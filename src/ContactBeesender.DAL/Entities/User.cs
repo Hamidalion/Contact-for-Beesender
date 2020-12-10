@@ -11,9 +11,9 @@ namespace ContactBeesender.DAL.Entities
     public class User : IdentityUser
     {
         /// <summary>
-        /// Navigatio to Ingridient.
+        /// Navigation to Contacts.
         /// </summary>
-        public ICollection<Contact> Contacts { get; set; }
+        public ICollection<Contacts> Contacts { get; set; }
 
     }
 }

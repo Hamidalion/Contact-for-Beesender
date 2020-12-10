@@ -14,15 +14,15 @@ namespace ContactBeesender.DAL.Contexts
         }
 
         /// <summary>
-        /// Ingridients entities.
+        /// Contacts entities.
         /// </summary>
-        public DbSet<Contacts> Contacts { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder = modelBuilder ?? throw new ArgumentNullException(nameof(modelBuilder));
 
-            modelBuilder.ApplyConfiguration(new ContactsConfiguration());
+            modelBuilder.ApplyConfiguration(new ContactConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

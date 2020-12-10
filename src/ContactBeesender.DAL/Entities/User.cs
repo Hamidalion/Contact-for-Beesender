@@ -13,7 +13,7 @@ namespace ContactBeesender.DAL.Entities
         /// <summary>
         /// Navigation to Contacts.
         /// </summary>
-        public ICollection<Contacts> Contacts { get; set; }
+        public ICollection<Contact> Contacts { get; set; }
 
     }
 }

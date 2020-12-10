@@ -8,38 +8,35 @@ using System.Text;
 
 namespace ContactBeesender.DAL.Configuration
 {
-    public class ContactsConfiguration : IEntityTypeConfiguration<Contacts>
+    public class ContactConfiguration : IEntityTypeConfiguration<Contact>
     {
         /// <inheritdoc/>
-        public void Configure(EntityTypeBuilder<Contacts> builder)
+        public void Configure(EntityTypeBuilder<Contact> builder)
         {
             builder = builder ?? throw new ArgumentNullException(nameof(builder));
 
             builder.ToTable(TablesConstants.Contacts, BranchConstants.Common)
-                   .HasKey(contacts => contacts.Id);
+                   .HasKey(contact => contact.Id);
 
-            builder.Property(contacts => contacts.Name)
+            builder.Property(contact => contact.Name)
                    .IsRequired()
                    .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
 
-            builder.Property(contacts => contacts.MobilePhone)
+            builder.Property(contact => contact.MobilePhone)
                    .IsRequired()
                    .HasMaxLength(ConfigurationConstants.ShotLenghtSimvbol);
 
-            builder.Property(contacts => contacts.Dear)
+            builder.Property(contact => contact.Dear)
                    .IsRequired()
                    .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
 
-            builder.Property(contacts => contacts.JobTittle)
+            builder.Property(contact => contact.JobTittle)
                    .IsRequired()
                    .HasMaxLength(ConfigurationConstants.SmallLenghtSimvbol);
 
-            builder.Property(contacts => contacts.Birthdate)
-                   .IsRequired();
-
-            builder.HasOne(contacts => contacts.User)
+            builder.HasOne(contact => contact.User)
                    .WithMany(identity => identity.Contacts)
-                   .HasForeignKey(contacts => contacts.UserId)
+                   .HasForeignKey(contact => contact.UserId)
                    .OnDelete(DeleteBehavior.Restrict);
         }
     }

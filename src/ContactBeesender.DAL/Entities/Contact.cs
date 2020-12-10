@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ContactBeesender.DAL.Entities
 {
-    public class Contacts : IHasDbIdentity, IHasUserIdentity
+    public class Contact : IHasDbIdentity, IHasUserIdentity
     {
         /// <inheritdoc/>
         public int Id { get; set; }

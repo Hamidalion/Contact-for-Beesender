@@ -1,20 +1,16 @@
-﻿using ContactBeesender.Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
-namespace ContactBeesender.DAL.Entities
+namespace ContactBeesender.Web.ViewModels
 {
     /// <summary>
-    /// Entities model of Contact
+    /// List view model.
     /// </summary>
-    public class Contact : IHasDbIdentity, IHasUserIdentity
+    public class ContactViewModel
     {
-        /// <inheritdoc/>
+        /// <summary>
+        /// Identifier.
+        /// </summary>
         public int Id { get; set; }
-
-        /// <inheritdoc/>
-        public string UserId { get; set; }
 
         /// <summary>
         /// Name contact.
@@ -40,8 +36,5 @@ namespace ContactBeesender.DAL.Entities
         /// Birthdate of contact.
         /// </summary>
         public DateTime Birthdate { get; set; }
-
-        /// <inheritdoc/>
-        public User User { get; set; }
     }
 }

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ContactViewModel>
+
+@{
+    ViewData["Title"] = string.Format(PageTitleResource.StringFormat, PageTitleResource.ContactIndex, PageTitleResource.SiteName);
+}
+
+@*
+    <div class="indent__margin-bottom">
+        <a asp-controller="Contact" asp-action="Create">
+            <input class="button button__link" type="button" value="+ Add New" />
+        </a>
+    </div>
+
+
+        @if (Model.Any())
+    {
+        foreach (var todoModel in Model)
+        {
+            var todoMainClass = !todoModel.IsActive
+                ? $"todo todo__indent-bottom {todoModel.Priority}"
+                : "todo todo__indent-bottom todo__task-completed";
+
+            var todoText = !todoModel.IsActive
+                ? $"todo__text"
+                : "todo__text todo__text-completed";
+
+            var todoAction = !todoModel.IsActive
+                ? "Complete"
+                : "Delete";
+
+            var (todoImage, todoAlt) = !todoModel.IsActive
+                ? ("in-progress.svg", "In progress")
+                : ("completed.svg", "Completed");
+
+            <div class="@todoMainClass">
+                <div class="todo__wrapper">
+                    <span class="@todoText">@todoModel.Title</span>
+                    <div class="todo__actions">
+                        <a asp-controller="Todo" asp-action="Detail" asp-route-id="@todoModel.Id">
+                            <img title="@todoModel.Description" src="/images/description.svg" alt="Description" />
+                        </a>
+                        <div class="tooltip">
+                            <img class="todo__status" src="/images/@todoImage" alt="@todoAlt">
+                            <span class="tooltiptext">
+                                <a class="todo__progress todo__text" data-delete asp-controller="Todo" asp-action="@todoAction" asp-route-id="@todoModel.Id">
+                                    Execute
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <h1>Contacts list is empty 😉</h1>
+    }
+*@
+
+@section css {
+    <link href="~/css/todo.css" rel="stylesheet" asp-append-version="true" />
+}
+
+@section js {
+    <script src="~/js/todo-delete.js" asp-append-version="true"></script>
+}
